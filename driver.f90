@@ -155,12 +155,12 @@ Program driver
     endif
 
     if (FLOWS) then
-      inquire(file=directory//'model_psi.fits', exist = iteration)
+      inquire(file=directory//'model_psi_ls.fits', exist = iteration)
       if (iteration) then
         allocate(psivar(nx,dim2(rank),nz))
 
         Lregular = 30.0*10.0**8/diml
-        call readfits(directory//'model_psi.fits',psivar,nz)
+        call readfits(directory//'model_psi_ls.fits',psivar,nz)
         psivar = rho0*Lregular*(psivar-psivar(1,1,1))*c2**0.5
 
         psivar(:,:,1:10) = 0.0

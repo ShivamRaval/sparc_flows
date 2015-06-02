@@ -42,10 +42,10 @@ SUBROUTINE PRODUCE_KERNELS
   
 
   if (flows) then
-   inquire(file=directory//'model_psi_'//jobno//'.fits', exist = lexist)
+   inquire(file=directory//'model_psi_ls'//jobno//'.fits', exist = lexist)
    if (lexist) then
     allocate(psivar(nx,dim2(rank),nz_kern))
-    call readfits(directory//'model_psi_'//jobno//'.fits',psivar,nz)
+    call readfits(directory//'model_psi_ls'//jobno//'.fits',psivar,nz)
     deallocate(psivar)
    endif
   endif
